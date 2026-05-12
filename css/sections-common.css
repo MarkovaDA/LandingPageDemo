@@ -1,0 +1,51 @@
+main,
+.section {
+  background-color: #fff;
+}
+
+.section {
+  padding: 64px 0;
+}
+
+.section--lecture {
+  background: #fff;
+}
+
+.section__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.section__title--accent {
+  color: var(--color-red);
+}
+
+.section__title--center {
+  text-align: center;
+}
+
+.section__kicker {
+  text-align: center;
+  color: var(--color-blue);
+  font-weight: 700;
+  margin: -8px 0 32px;
+  font-size: 1.05rem;
+}
+
+.section__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.section__head .section__title {
+  margin-bottom: 0;
+}

@@ -1,0 +1,60 @@
+:root {
+  --color-bg: #e9e1d4;
+  --color-bg-alt: #f2ead0;
+  --color-text: #313131;
+  --color-red: #f54932;
+  --color-blue: #3056d3;
+  --color-gold: #fbce51;
+  --color-card: #e5dbc8;
+  --color-muted: #6b6560;
+  --font-serif: "Playfair Display", "Times New Roman", serif;
+  --font-sans: "PT Sans", system-ui, sans-serif;
+  --container: min(1160px, calc(100% - 40px));
+  --radius-pill: 60px;
+  --shadow-soft: 0 12px 40px rgba(49, 49, 49, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--color-text);
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  filter: sepia(0.25) contrast(1.02);
+}
+
+a {
+  color: var(--color-blue);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  width: var(--container);
+  margin-inline: auto;
+}

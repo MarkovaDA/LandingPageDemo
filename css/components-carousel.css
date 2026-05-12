@@ -1,0 +1,41 @@
+.carousel__controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.carousel__controls--inline {
+  margin-top: 0;
+}
+
+.carousel__btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-text);
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.1s ease;
+}
+
+.carousel__btn:hover {
+  opacity: 0.88;
+}
+
+.carousel__btn[disabled] {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.carousel__counter {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  min-width: 3.5ch;
+}

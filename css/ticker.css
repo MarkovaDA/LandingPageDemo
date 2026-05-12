@@ -1,0 +1,46 @@
+.ticker {
+  background: var(--color-red);
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
+}
+
+.hero > .ticker {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  width: 100%;
+}
+
+.ticker__track {
+  display: inline-block;
+  padding: 10px 0;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  animation: ticker 16s linear infinite;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker__track span {
+  display: inline-block;
+  padding-right: 3rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker__track {
+    animation: none !important;
+  }
+}

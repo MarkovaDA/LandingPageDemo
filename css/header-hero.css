@@ -1,0 +1,307 @@
+.hero {
+  position: relative;
+  padding: 24px 0 0;
+  background-color: transparent;
+  /* main_logo временно отключён */
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("../assets/texture.png");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 320px auto;
+  opacity: 0.5;
+}
+
+.header {
+  height: 700px;
+}
+
+.hero__pawn {
+  position: absolute;
+  right: 70px;
+  bottom: 50px;
+  width: 120px;
+  height: 120px;
+  background: url("../assets/pawn.png") center/contain no-repeat;
+  pointer-events: none;
+  z-index: 2;
+  animation: pawn-slide-in 350ms ease-out both;
+}
+
+.hero__horse {
+  position: absolute;
+  right: 300px;
+  bottom: 41px;
+  width: 180px;
+  height: 180px;
+  background: url("../assets/horse.png") center/contain no-repeat;
+  pointer-events: none;
+  z-index: 2;
+  animation: horse-rise-in 375ms ease-out both;
+}
+
+@keyframes pawn-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes horse-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 32px;
+  padding-bottom: 48px;
+}
+
+.hero__content {
+  max-width: 500px;
+}
+
+@media (min-width: 900px) {
+  .hero__inner {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: start;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 899px) {
+  .hero__content {
+    text-align: center;
+  }
+
+  .hero__lead {
+    margin-inline: auto;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+}
+
+.logo {
+  grid-column: 1 / -1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.logo:hover {
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.logo__img {
+  display: block;
+  height: 40px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  filter: none;
+}
+
+.logo__glyph svg {
+  display: block;
+}
+
+.hero__title {
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0 0 16px;
+  margin-bottom: 0px;
+}
+
+.hero__title--small {
+  text-align: center;
+}
+
+.hero__lead {
+  margin: 32px 0 28px;
+  max-width: 52ch;
+  font-family: "Golos Text", system-ui, sans-serif;
+  font-weight: 400;
+  color: #313131;
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero__actions .btn--primary:hover {
+  background: #fbce51;
+  color: #1f1f1f;
+  box-shadow: var(--shadow-soft);
+}
+
+.hero__actions .btn--ghost:hover {
+  background: #1f1f1f;
+  color: #fff;
+  border-color: #1f1f1f;
+}
+
+.hero__collage {
+  position: relative;
+  min-height: 280px;
+  isolation: isolate;
+}
+
+@media (min-width: 900px) {
+  .hero__collage {
+    min-height: 340px;
+  }
+}
+
+.hero__sun {
+  position: absolute;
+  right: 8%;
+  top: 8%;
+  width: min(220px, 45vw);
+  height: min(220px, 45vw);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff4c2, #fbce51 55%, #e2a826 100%);
+  opacity: 0.95;
+}
+
+.hero__pieces {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.chess-piece {
+  position: absolute;
+  width: 72px;
+  height: 120px;
+  background: linear-gradient(180deg, #fff 0%, #e8e0d5 100%);
+  border-radius: 8px 8px 4px 4px;
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.15);
+}
+
+.chess-piece::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 36px;
+  background: inherit;
+  border-radius: 50% 50% 40% 40%;
+}
+
+.chess-piece--king {
+  left: 12%;
+  bottom: 18%;
+  transform: rotate(-6deg);
+}
+
+.chess-piece--knight {
+  left: 38%;
+  bottom: 12%;
+  width: 80px;
+  height: 100px;
+  transform: rotate(8deg);
+}
+
+.chess-piece--small {
+  right: 6%;
+  bottom: 22%;
+  left: auto;
+  width: 56px;
+  height: 90px;
+  transform: rotate(4deg);
+}
+
+.hero__skyline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 42%;
+  background: linear-gradient(
+      to top,
+      rgba(49, 49, 49, 0.25),
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      #4a4a4a 0 4%,
+      transparent 4% 8%,
+      #3d3d3d 8% 11%,
+      transparent 11% 15%,
+      #525252 15% 20%,
+      transparent 20% 24%,
+      #4f4f4f 24% 30%,
+      transparent 30% 35%,
+      #3a3a3a 35% 40%,
+      transparent 40% 44%,
+      #555 44% 52%,
+      transparent 52% 100%
+    );
+  mask-image: linear-gradient(to top, #000 55%, transparent);
+}
+
+.chess-strip {
+  height: 28px;
+  background: repeating-linear-gradient(
+    90deg,
+    #313131 0,
+    #313131 28px,
+    #f5f0e6 28px,
+    #f5f0e6 56px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__pawn,
+  .hero__horse {
+    animation: none !important;
+  }
+}
+
+/* Временно: декоративные фигуры (пешка, конь) в шапке скрыты */
+.hero__pawn,
+.hero__horse {
+  display: none !important;
+}

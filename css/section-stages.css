@@ -1,0 +1,93 @@
+.section--stages {
+  background: #fff;
+}
+
+.stages-wrap {
+  position: relative;
+}
+
+.stages__grid {
+  display: grid;
+  gap: 16px;
+  transition: transform 0.22s ease;
+}
+
+@media (min-width: 900px) {
+  .stages__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .stages .carousel__controls {
+    display: none;
+  }
+}
+
+@media (max-width: 899px) {
+  .stages .carousel__viewport {
+    overflow: hidden;
+  }
+
+  .stages .stages__grid {
+    display: flex;
+    gap: 0;
+  }
+
+  .stages .stage-card {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+  }
+}
+
+.stage-card {
+  position: relative;
+  background: var(--color-card);
+  padding: 28px 24px 24px;
+  border-radius: 12px;
+  min-height: 140px;
+  box-shadow: 0 8px 24px rgba(49, 49, 49, 0.06);
+}
+
+.stage-card__num {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-text);
+  color: #fff;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+}
+
+.stage-card p {
+  margin: 0;
+  padding-right: 32px;
+}
+
+.stage-card--plane {
+  overflow: visible;
+}
+
+.stage-card__plane {
+  position: absolute;
+  right: -12px;
+  bottom: -24px;
+  width: min(200px, 45%);
+  height: auto;
+  border-radius: 8px;
+  filter: sepia(0.4);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 899px) {
+  .stage-card__plane {
+    right: 8px;
+    bottom: -12px;
+    width: 120px;
+  }
+}
