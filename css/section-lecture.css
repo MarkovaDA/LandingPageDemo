@@ -1,7 +1,7 @@
 .lecture__row {
   display: grid;
   gap: 28px;
-  margin-bottom: 48px;
+  margin-bottom: 28px;
 }
 
 @media (min-width: 768px) {
@@ -14,6 +14,14 @@
     grid-template-columns: 1fr 1fr;
     align-items: start;
   }
+}
+
+.lecture__row--bender .lecture__photo {
+  margin: 0;
+}
+
+.lecture__row--bender .lecture__bender {
+  margin: 0;
 }
 
 .lecture__subtitle {
@@ -86,4 +94,5 @@
 .lecture__contact {
   margin: 0;
   font-size: 0.95rem;
+  color: #3057A2;
 }

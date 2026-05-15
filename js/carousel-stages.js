@@ -18,31 +18,33 @@
       return !mqDesktop.matches;
     }
 
+    function resetMobileStyles() {
+      if (!track) return;
+      track.style.transform = "";
+      track.style.width = "";
+      track.style.gridTemplateColumns = "";
+      track.style.gridAutoColumns = "";
+    }
+
     function update() {
       if (!viewport || !track || !counter) return;
 
       if (!isMobileMode()) {
-        track.style.transform = "";
-        cards.forEach((c) => {
-          c.style.flexBasis = "";
-          c.style.minWidth = "";
-        });
+        resetMobileStyles();
         if (prev) prev.disabled = true;
         if (next) next.disabled = true;
         counter.textContent = `${cards.length} этапов`;
         return;
       }
 
-      const w = viewport.offsetWidth;
-      cards.forEach((c) => {
-        c.style.flexBasis = `${w}px`;
-        c.style.minWidth = `${w}px`;
-      });
-
+      const slideWidth = viewport.clientWidth;
       const total = cards.length;
+
+      track.style.gridAutoColumns = `${slideWidth}px`;
+      track.style.width = `${total * slideWidth}px`;
+
       page = Math.max(0, Math.min(page, total - 1));
-      const offset = page * w;
-      track.style.transform = `translateX(${-offset}px)`;
+      track.style.transform = `translateX(${-page * slideWidth}px)`;
       counter.textContent = `${page + 1} / ${total}`;
       if (prev) prev.disabled = page === 0;
       if (next) next.disabled = page >= total - 1;

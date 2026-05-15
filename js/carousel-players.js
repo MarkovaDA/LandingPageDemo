@@ -48,7 +48,9 @@
 
       const tp = totalPages();
       page = Math.max(0, Math.min(page, tp - 1));
-      const offset = page * vw;
+      // При одной карточке на экране между слайдами учитываем gap трека (см. .players__track в CSS).
+      const stepPx = spv === 1 ? vw + gap : vw;
+      const offset = page * stepPx;
       track.style.transform = `translateX(${-offset}px)`;
       counter.textContent = `${page + 1} / ${tp}`;
       if (prev) prev.disabled = page === 0;
