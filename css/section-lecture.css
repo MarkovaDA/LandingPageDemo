@@ -12,12 +12,17 @@
 
   .lecture__row--bender {
     grid-template-columns: 1fr 1fr;
-    align-items: start;
+    align-items: stretch;
   }
 }
 
-.lecture__row--bender .lecture__photo {
-  margin: 0;
+.lecture__row--bender .lecture__photo img {
+  flex: 1;
+  display: flex;
+  width: 100%;
+  height: 474px;
+  min-height: 100%;
+  object-fit: cover;
 }
 
 .lecture__row--bender .lecture__bender {
@@ -85,6 +90,10 @@
 
 .event-meta dd {
   margin: 0;
+}
+
+.container.lecture .event-meta dd {
+  font-weight: 700;
 }
 
 .strike {

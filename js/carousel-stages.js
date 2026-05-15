@@ -66,5 +66,31 @@
     update();
   }
 
+  function initAirplane() {
+    const plane = document.querySelector(".airplane");
+    const section = document.querySelector(".section--stages");
+    if (!plane || !section) return;
+
+    const show = () => plane.classList.add("airplane--visible");
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      show();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          show();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -5% 0px" }
+    );
+
+    observer.observe(section);
+  }
+
   initStages();
+  initAirplane();
 })();

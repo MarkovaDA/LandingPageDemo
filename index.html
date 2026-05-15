@@ -59,6 +59,8 @@
         </div>
       </div> 
       <div class="hero__ellipse" aria-hidden="true"></div>
+      <div class="hero__chess-figures" aria-hidden="true"></div>
+      <div class="hero__main-logo" aria-hidden="true"></div>
       <div class="hero__horse" aria-hidden="true"></div>
       <div class="hero__pawn" aria-hidden="true"></div>
       <div class="ticker" aria-hidden="true">
@@ -197,7 +199,7 @@
             </div>
           </div>
           <img
-            class="section--stages__airplane"
+            class="section--stages__airplane airplane"
             src="assets/airplane.png"
             alt=""
             width="340"
@@ -236,49 +238,79 @@
           <div class="players carousel" data-carousel="players" data-slides-desktop="3" data-slides-mobile="1">
             <div class="carousel__viewport players__viewport">
               <div class="players__track">
-              <article class="player-card">
+              <article class="player-card" data-slide="1">
                 <div class="player-card__avatar">
-                  <img src="assets/silhouette.svg" alt="" width="120" height="120" />
+                  <img
+                    src="assets/players/player-capablanca.svg"
+                    alt="Портрет Хосе-Рауля Капабланки"
+                    width="120"
+                    height="120"
+                  />
                 </div>
                 <h3 class="player-card__name">Хосе-Рауль Капабланка</h3>
                 <p class="player-card__role">Чемпион мира по шахматам</p>
                 <a class="btn btn--outline" href="#">Подробнее</a>
               </article>
-              <article class="player-card">
+              <article class="player-card" data-slide="2">
                 <div class="player-card__avatar">
-                  <img src="assets/silhouette.svg" alt="" width="120" height="120" />
+                  <img
+                    src="assets/players/player-lasker.svg"
+                    alt="Портрет Эмануила Ласкера"
+                    width="120"
+                    height="120"
+                  />
                 </div>
                 <h3 class="player-card__name">Эмануил Ласкер</h3>
                 <p class="player-card__role">Чемпион мира по шахматам</p>
                 <a class="btn btn--outline" href="#">Подробнее</a>
               </article>
-              <article class="player-card">
+              <article class="player-card" data-slide="3">
                 <div class="player-card__avatar">
-                  <img src="assets/silhouette.svg" alt="" width="120" height="120" />
+                  <img
+                    src="assets/players/player-alekhin.svg"
+                    alt="Портрет Александра Алехина"
+                    width="120"
+                    height="120"
+                  />
                 </div>
                 <h3 class="player-card__name">Александр Алехин</h3>
                 <p class="player-card__role">Чемпион мира по шахматам</p>
                 <a class="btn btn--outline" href="#">Подробнее</a>
               </article>
-              <article class="player-card">
+              <article class="player-card" data-slide="4">
                 <div class="player-card__avatar">
-                  <img src="assets/silhouette.svg" alt="" width="120" height="120" />
+                  <img
+                    src="assets/players/player-nimzovich.svg"
+                    alt="Портрет Арона Нимцовича"
+                    width="120"
+                    height="120"
+                  />
                 </div>
                 <h3 class="player-card__name">Арон Нимцович</h3>
                 <p class="player-card__role">Гроссмейстер, теоретик дебютов</p>
                 <a class="btn btn--outline" href="#">Подробнее</a>
               </article>
-              <article class="player-card">
+              <article class="player-card" data-slide="5">
                 <div class="player-card__avatar">
-                  <img src="assets/silhouette.svg" alt="" width="120" height="120" />
+                  <img
+                    src="assets/players/player-reti.svg"
+                    alt="Портрет Рихарда Рети"
+                    width="120"
+                    height="120"
+                  />
                 </div>
                 <h3 class="player-card__name">Рихард Рети</h3>
                 <p class="player-card__role">Мастер гипермодерна</p>
                 <a class="btn btn--outline" href="#">Подробнее</a>
               </article>
-              <article class="player-card">
+              <article class="player-card" data-slide="6">
                 <div class="player-card__avatar">
-                  <img src="assets/silhouette.svg" alt="" width="120" height="120" />
+                  <img
+                    src="assets/players/player-bogoljubov.svg"
+                    alt="Портрет Ефима Боголюбова"
+                    width="120"
+                    height="120"
+                  />
                 </div>
                 <h3 class="player-card__name">Ефим Боголюбов</h3>
                 <p class="player-card__role">Чемпион СССР по шахматам</p>
@@ -306,9 +338,8 @@
       </div>
       <div class="container footer__note">
         <p>
-          Все персонажи, события и цитаты вымышлены: любые совпадения случайны и не преследуют цели
-          никого оскорбить или осквернить. Страница создана в духе сатиры
-          <cite>«Двенадцать стульев»</cite> Ильфа и Петрова.
+          Все персонажи, события и цитаты являются вымышленными и не принадлежат создателям сайта. 
+          С подробностями можно познакомиться в главе XXXIV романа Ильи Ильфа и Евгения Петрова <cite>«Двенадцать стульев»</cite>
         </p>
       </div>
     </footer>

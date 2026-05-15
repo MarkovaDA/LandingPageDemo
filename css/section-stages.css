@@ -7,7 +7,8 @@
   overflow: visible;
 }
 
-.section--stages__airplane {
+.section--stages__airplane,
+.airplane {
   position: absolute;
   bottom: 0;
   right: -60px;
@@ -15,13 +16,48 @@
   height: auto;
   pointer-events: none;
   z-index: 2;
+  opacity: 0;
+  transform: translateX(120px);
+  will-change: transform, opacity;
+}
+
+.section--stages__airplane.airplane--visible,
+.airplane.airplane--visible {
+  animation: airplane-slide-in 550ms ease-out forwards;
+}
+
+@keyframes airplane-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(120px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @media (max-width: 899px) {
-  .section--stages__airplane {
+  .section--stages__airplane,
+  .airplane {
     right: -60px;
     width: min(200px, 50vw);
+  }
+
+  .section--stages__airplane.airplane--visible,
+  .airplane.airplane--visible {
+    animation-name: airplane-slide-in-mobile;
+  }
+}
+
+@keyframes airplane-slide-in-mobile {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
     opacity: 0.85;
+    transform: translateX(0);
   }
 }
 
@@ -224,5 +260,14 @@
     right: 8px;
     bottom: -12px;
     width: 120px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section--stages__airplane,
+  .airplane {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
   }
 }

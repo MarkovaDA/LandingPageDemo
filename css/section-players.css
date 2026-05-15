@@ -2,6 +2,19 @@
   padding-bottom: 48px;
 }
 
+.section--players .section__title {
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.15;
+}
+
+@media (min-width: 900px) {
+  .section--players .section__title {
+    font-size: 54px;
+  }
+}
+
 .players__viewport {
   overflow: hidden;
 }
@@ -46,10 +59,11 @@
 }
 
 .player-card__name {
-  font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-family: "Golos Text", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
   margin: 0 0 8px;
-  font-weight: 800;
 }
 
 .player-card__role {
