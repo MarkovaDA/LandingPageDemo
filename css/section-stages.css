@@ -73,10 +73,6 @@
 }
 
 @media (max-width: 899px) {
-  .section--stages .section__title {
-    font-size: 48px;
-  }
-
   .section--stages .section__title::after {
     display: block;
     margin-left: 0;

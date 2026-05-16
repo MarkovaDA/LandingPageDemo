@@ -1,0 +1,389 @@
+/* Мобильная вёрстка по макету designs/mobile.png (одна колонка, кремовый фон блоков, карусели). Брейкпоинт: 899px — как в остальных стилях. */
+
+@media (max-width: 899px) {
+  :root {
+    --container: min(1160px, calc(100% - 24px));
+  }
+
+  body {
+    overflow-x: clip;
+  }
+
+  main .section {
+    background-color: #f5f0e6;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .section--lecture {
+    padding-top: 24px;
+  }
+
+  .section .section__title,
+  .section--stages .section__title,
+  .section--players .section__title,
+  .lecture__text .section__title,
+  .lecture__bender .section__title {
+    font-family: "Merriweather", Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.35;
+  }
+
+  .section__head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .carousel__controls,
+  .carousel__controls--inline,
+  .carousel__controls--stages,
+  .stages .carousel__controls {
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .section__head .carousel__controls--inline {
+    justify-content: center;
+  }
+
+  .section--players .section__head {
+    align-items: center;
+  }
+
+  .section--players .section__head .section__title {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Карусель «Этапы»: точки над стрелками (как на макете) */
+  .stages .carousel__dots {
+    display: flex;
+    justify-content: center;
+  }
+
+  .carousel__controls--stages {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .carousel__controls-row {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .carousel__btn--prev,
+  .carousel__btn--next {
+    width: 36px;
+    height: 36px;
+    font-size: 1.25rem;
+  }
+
+  .player-card {
+    text-align: center;
+  }
+
+  .player-card__avatar {
+    margin-inline: auto;
+  }
+
+  .stage-card--plane .stage-card__plane {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  .stage-card--plane .stage-card__text {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  /* ——— Header / Hero ——— */
+  .header {
+    height: auto;
+    min-height: 800px;
+    background-color: var(--color-bg);
+  }
+
+  .hero {
+    padding-top: max(16px, env(safe-area-inset-top, 0px));
+  }
+
+  .hero__inner {
+    gap: 24px;
+    padding-bottom: 32px;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .logo {
+    align-self: start;
+    justify-self: start;
+    justify-content: flex-start;
+    width: auto;
+  }
+
+  .hero__content {
+    width: 100%;
+    max-width: 500px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo__text {
+    display: inline;
+    font-family: "Golos Text", system-ui, sans-serif;
+    font-size: clamp(0.65rem, 2.8vw, 0.78rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text);
+  }
+
+  .hero__content .hero__title {
+    width: 100%;
+  }
+
+  .hero__title--large {
+    text-align: left;
+    width: 100%;
+  }
+
+  .hero__title--small {
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero__title,
+  .hero__title--large,
+  .hero__title--small {
+    font-size: 36px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero__lead {
+    margin: 20px 0 0;
+    max-width: none;
+    text-align: center;
+    font-family: "Golos Text", system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    margin-top: 32px;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    padding: 16px 24px;
+    font-family: "Golos Text", system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .hero__ellipse,
+  .hero__chess-figures,
+  .hero__horse,
+  .hero__pawn,
+  .hero__main-logo {
+    display: none;
+  }
+
+  .hero > .ticker {
+    z-index: 4;
+  }
+
+  .ticker__track {
+    padding: 9px 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ——— Лекция ——— */
+  .lecture__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  .lecture__row--top {
+    align-items: start;
+  }
+
+  .lecture__row--top .lecture__text {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .lecture__row--top .lecture__text .section__title:first-of-type {
+    margin: 0 0 20px;
+  }
+
+  .lecture__row--top .lecture__text .section__title:last-of-type {
+    margin: 48px 0 0;
+  }
+
+  .lecture__row--top .lecture__photo--round {
+    justify-self: center;
+    width: 100%;
+    max-width: min(336px, 100%);
+  }
+
+  .lecture__row--bender {
+    align-items: start;
+  }
+
+  .lecture__theme {
+    font-family: "Merriweather", Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.35;
+  }
+
+  .lecture__photo--round img {
+    width: 100%;
+    max-width: min(336px, 100%);
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 394 / 250;
+    object-fit: cover;
+  }
+
+  .lecture__row--bender .lecture__photo {
+    display: block;
+  }
+
+  .lecture__row--bender .lecture__photo img {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 474 / 527;
+    object-fit: cover;
+  }
+
+  .event-meta__row {
+    gap: 10px;
+    align-items: start;
+  }
+
+  .event-meta dt {
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+
+  .container.lecture .event-meta dd {
+    font-size: 0.9rem;
+    line-height: 1.35;
+    text-align: right;
+    word-break: break-word;
+  }
+
+  /* ——— Этапы ——— */
+  .section--stages .section__title {
+    margin-bottom: 20px;
+  }
+
+  .section--stages .section__title::after {
+    content: "Будущие источники обогащения васюкинцев";
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+    white-space: normal;
+    font-size: clamp(15px, 3.8vw, 18px);
+    line-height: 1.25;
+  }
+
+  .stage-card {
+    padding: 14px 16px;
+    min-height: 0;
+  }
+
+  .stage-card__text {
+    font-size: clamp(16px, 3.8vw, 18px);
+  }
+
+  .stage-card--plane .stage-card__text {
+    padding-right: min(100px, 34%);
+  }
+
+  .section--stages .container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+  }
+
+  .section--stages__airplane,
+  .section--stages .container > .airplane {
+    order: -1;
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    align-self: center;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 0 16px;
+  }
+
+  /* ——— Участники ——— */
+  .section--players {
+    padding-bottom: 36px;
+  }
+
+  .player-card .btn {
+    width: 100%;
+  }
+
+  /* ——— Футер ——— */
+  .footer__note {
+    padding: 24px 0 40px;
+  }
+
+  .footer__note p {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 479px) {
+  :root {
+    --container: min(1160px, calc(100% - 20px));
+  }
+
+  .section {
+    padding: 32px 0;
+  }
+
+  .event-meta__row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 14px 0;
+  }
+
+  .container.lecture .event-meta dd {
+    text-align: left;
+  }
+}

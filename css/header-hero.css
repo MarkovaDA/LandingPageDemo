@@ -165,6 +165,12 @@
   opacity: 0.85;
 }
 
+.logo__text {
+  display: none;
+  max-width: min(200px, 52vw);
+  line-height: 1.2;
+}
+
 .logo__img {
   display: block;
   height: 40px;

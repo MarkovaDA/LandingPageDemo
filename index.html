@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/components-carousel.css" />
     <link rel="stylesheet" href="css/section-players.css" />
     <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/mobile.css" />
   </head>
   <body>
     <header class="hero header" id="top">
@@ -81,17 +82,19 @@
         <div class="container lecture">
           <div class="lecture__row lecture__row--top">
             <div class="lecture__text">
-              <h2 class="section__title">Чтобы поддержать Международный васюкинский турнир посетите лекцию на тему:
+              <h2 class="section__title">Чтобы поддержать Международный васюкинский турнир</h2>
+              <figure class="lecture__photo lecture__photo--round">
+                <img
+                  src="assets/chess_team.png"
+                  alt="Игра в шахматы в начале XX века"
+                  loading="lazy"
+                />
+              </figure>
+              <h2 class="section__title">
+                посетите лекцию на тему:
                 <span class="lecture__theme">«Плодотворная дебютная идея»</span>
               </h2>
             </div>
-            <figure class="lecture__photo lecture__photo--round">
-              <img
-                src="assets/chess_team.png"
-                alt="Игра в шахматы в начале XX века"
-                loading="lazy"
-              />
-            </figure>
           </div>
 
           <div class="lecture__row lecture__row--bender" id="tournament">
@@ -110,23 +113,23 @@
               </h2>
               <dl class="event-meta">
                 <div class="event-meta__row">
-                  <td>Место проведения</td>
+                  <dt>Место проведения</dt>
                   <dd>Клуб «Картонажник»</dd>
                 </div>
                 <div class="event-meta__row">
-                  <td>Дата и время</td>
+                  <dt>Дата и время</dt>
                   <dd>22 июня 1927 г. в 18:00</dd>
                 </div>
                 <div class="event-meta__row">
-                  <td>Стоимость входных билетов</td>
+                  <dt>Стоимость входных билетов</dt>
                   <dd>20 коп.</dd>
                 </div>
                 <div class="event-meta__row">
-                  <td>Плата за игру</td>
+                  <dt>Плата за игру</dt>
                   <dd>50 коп .</dd>
                 </div>
                 <div class="event-meta__row">
-                  <td>Плата за письмо в телеграфный канал</td>
+                  <dt>Плата за письмо в телеграфный канал</dt>
                   <dd><s class="strike">100 руб.</s> 21 руб. 16 коп.</dd>
                 </div>
               </dl>
@@ -187,14 +190,22 @@
                 </article>
                 </div>
               </div>
-              <div class="carousel__controls">
-                <button type="button" class="carousel__btn carousel__btn--prev" aria-label="Назад">
-                  ‹
-                </button>
-                <span class="carousel__counter" data-counter>1 / 7</span>
-                <button type="button" class="carousel__btn carousel__btn--next" aria-label="Вперёд">
-                  ›
-                </button>
+              <div class="carousel__controls carousel__controls--stages">
+                <div
+                  class="carousel__dots"
+                  data-stages-dots
+                  role="tablist"
+                  aria-label="Слайды этапов"
+                ></div>
+                <div class="carousel__controls-row">
+                  <button type="button" class="carousel__btn carousel__btn--prev" aria-label="Назад">
+                    ‹
+                  </button>
+                  <span class="carousel__counter" data-counter>1 / 7</span>
+                  <button type="button" class="carousel__btn carousel__btn--next" aria-label="Вперёд">
+                    ›
+                  </button>
+                </div>
               </div>
             </div>
           </div>

@@ -39,3 +39,42 @@
   font-variant-numeric: tabular-nums;
   min-width: 3.5ch;
 }
+
+.carousel__controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.carousel__dots {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  flex-shrink: 0;
+  background: rgba(49, 49, 49, 0.18);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.carousel__dot.is-active {
+  background: var(--color-text);
+  transform: scale(1.1);
+}
+
+.carousel__dot:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
+}

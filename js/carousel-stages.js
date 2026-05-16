@@ -10,9 +10,45 @@
     const prev = root.querySelector(".carousel__btn--prev");
     const next = root.querySelector(".carousel__btn--next");
     const counter = root.querySelector("[data-counter]");
+    const dotsRoot = root.querySelector("[data-stages-dots]");
     const cards = track ? [...track.querySelectorAll(".stage-card")] : [];
 
     let page = 0;
+
+    function syncDots() {
+      if (!dotsRoot) return;
+      if (!isMobileMode()) {
+        dotsRoot.innerHTML = "";
+        return;
+      }
+
+      if (dotsRoot.children.length !== cards.length) {
+        dotsRoot.replaceChildren();
+        cards.forEach((_, i) => {
+          const b = document.createElement("button");
+          b.type = "button";
+          b.className = "carousel__dot";
+          b.setAttribute("role", "tab");
+          b.setAttribute("aria-label", `Слайд ${i + 1}`);
+          b.addEventListener("click", () => {
+            page = i;
+            update();
+          });
+          dotsRoot.appendChild(b);
+        });
+      }
+
+      [...dotsRoot.children].forEach((btn, i) => {
+        const active = i === page;
+        btn.classList.toggle("is-active", active);
+        btn.setAttribute("aria-selected", active ? "true" : "false");
+        if (active) {
+          btn.setAttribute("aria-current", "true");
+        } else {
+          btn.removeAttribute("aria-current");
+        }
+      });
+    }
 
     function isMobileMode() {
       return !mqDesktop.matches;
@@ -34,6 +70,7 @@
         if (prev) prev.disabled = true;
         if (next) next.disabled = true;
         counter.textContent = `${cards.length} этапов`;
+        syncDots();
         return;
       }
 
@@ -48,6 +85,7 @@
       counter.textContent = `${page + 1} / ${total}`;
       if (prev) prev.disabled = page === 0;
       if (next) next.disabled = page >= total - 1;
+      syncDots();
     }
 
     prev?.addEventListener("click", () => {
