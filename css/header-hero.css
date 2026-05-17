@@ -12,7 +12,7 @@
     url("../assets/queen.png"),
     url("../assets/king.png");
   background-repeat: no-repeat;
-  background-position: right 4% bottom 24%, right 22% bottom 26%;
+  background-position: right 165px top 0, right 40% top 200px;
   background-size: min(200px, 22vw) auto, min(200px, 22vw) auto;
 }
 

@@ -12,6 +12,10 @@
   min-width: 0;
 }
 
+.lecture__bender {
+  overflow: visible;
+}
+
 .lecture__photo {
   margin: 0;
 }
@@ -143,10 +147,33 @@
 
 .container.lecture .event-meta dd {
   font-weight: 700;
+  overflow: visible;
 }
 
 .strike {
   color: var(--color-muted);
+}
+
+.red-text__line-through {
+  position: relative;
+  display: inline-block;
+  line-height: 1.2;
+  vertical-align: baseline;
+  overflow: visible;
+}
+
+.red-text__line-through::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 50%;
+  height: 0;
+  margin-top: -1.5px;
+  border-top: 3px solid #f54932;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .lecture__contact {
