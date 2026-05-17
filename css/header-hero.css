@@ -24,6 +24,10 @@
   background: url("../assets/main_logo.png") no-repeat center bottom / cover;
 }
 
+.hero__main-logo__img {
+  display: none;
+}
+
 .hero::before {
   content: "";
   position: absolute;
