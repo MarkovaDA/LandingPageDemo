@@ -7,10 +7,15 @@
 
   body {
     overflow-x: clip;
+    background-color: var(--color-white);
   }
 
   main .section {
-    background-color: var(--color-bg-section);
+    background-color: var(--color-white);
+  }
+
+  .footer__note {
+    background-color: var(--color-white);
   }
 
   .section {
@@ -100,9 +105,9 @@
     transform: translateX(-50%);
   }
 
-  .stage-card--plane .stage-card__text {
-    padding-right: 0;
-    text-align: center;
+  .stages .stage-card--plane .stage-card__text {
+    padding-right: min(100px, 34%);
+    text-align: left;
   }
 
   /* ——— Header / Hero ——— */
@@ -203,10 +208,50 @@
     anchor-name: --hero-support-btn;
   }
 
-  .hero__chess-figures,
-  .hero__horse,
+  .hero__actions .btn--primary:hover {
+    background: var(--color-text);
+    color: var(--color-white);
+    border-color: transparent;
+    opacity: 0.85;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .hero__actions .btn--ghost {
+    background: var(--color-white);
+    color: var(--color-text);
+    border-color: var(--color-white);
+  }
+
+  .hero__actions .btn--ghost:hover {
+    background: var(--color-white);
+    color: var(--color-text);
+    border-color: var(--color-white);
+    opacity: 0.85;
+  }
+
+  .hero__chess-figures {
+    display: block;
+    z-index: 0;
+    background-position: right 82px top 0, right 40% top 100px;
+    background-size: min(100px, 11vw) auto, min(100px, 11vw) auto;
+  }
+
+  .hero__horse {
+    display: block;
+    right: 200px;
+    bottom: 20px;
+    width: 90px;
+    height: 90px;
+    z-index: 2;
+  }
+
   .hero__pawn {
-    display: none;
+    display: block;
+    right: 35px;
+    bottom: 25px;
+    width: 60px;
+    height: 60px;
+    z-index: 2;
   }
 
   .hero__ellipse {
@@ -365,7 +410,6 @@
 
   .stage-card {
     padding: 14px 16px;
-    min-height: 0;
   }
 
   .stage-card__text {

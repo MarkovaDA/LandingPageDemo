@@ -158,24 +158,59 @@
 }
 
 @media (max-width: 899px) {
+  .stages-wrap {
+    --stages-slide-height: clamp(360px, 62dvh, 560px);
+  }
+
   .stages .carousel__viewport {
     overflow: hidden;
     width: 100%;
+    height: var(--stages-slide-height);
   }
 
   .stages__grid {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 100%;
+    display: flex;
     gap: 0;
     width: max-content;
+    height: var(--stages-slide-height);
+    align-items: stretch;
     will-change: transform;
   }
 
+  .stages__slide {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+    height: var(--stages-slide-height);
+    box-sizing: border-box;
+  }
+
   .stages .stage-card {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    column-gap: 16px;
+    align-items: center;
+    align-content: center;
     width: 100%;
     min-width: 0;
-    height: auto;
+    flex: 1 1 0;
+    min-height: 0;
+    height: 100%;
+  }
+
+  .stages .stage-card__num {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    align-self: center;
+  }
+
+  .stages .stage-card__text {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    text-align: left;
   }
 
   .stage-card[data-index] {

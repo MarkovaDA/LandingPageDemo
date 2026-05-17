@@ -1,5 +1,6 @@
 (function () {
   const mqDesktop = window.matchMedia("(min-width: 900px)");
+  const MOBILE_PAGES = [[0, 1], [2], [3, 4], [5], [6]];
 
   function initStages() {
     const root = document.querySelector('[data-carousel="stages"]');
@@ -11,31 +12,82 @@
     const next = root.querySelector(".carousel__btn--next");
     const counter = root.querySelector("[data-counter]");
     const dotsRoot = root.querySelector("[data-stages-dots]");
-    const cards = track ? [...track.querySelectorAll(".stage-card")] : [];
+    const cards = track
+      ? [...track.querySelectorAll(".stage-card")].sort(
+          (a, b) => Number(a.dataset.index) - Number(b.dataset.index)
+        )
+      : [];
+
+    const cardByIndex = new Map(
+      cards.map((card) => [Number(card.dataset.index), card])
+    );
 
     let page = 0;
+    let mobileGrouped = false;
+    let slideElements = [];
+
+    function isMobileMode() {
+      return !mqDesktop.matches;
+    }
+
+    function getMobilePageCount() {
+      return MOBILE_PAGES.length;
+    }
+
+    function groupForMobile() {
+      if (!track) return;
+      if (mobileGrouped && slideElements.length === MOBILE_PAGES.length) return;
+      if (mobileGrouped) ungroupForDesktop();
+
+      MOBILE_PAGES.forEach((indices) => {
+        const slide = document.createElement("div");
+        slide.className = "stages__slide";
+
+        indices.forEach((index) => {
+          const card = cardByIndex.get(index);
+          if (card) slide.appendChild(card);
+        });
+
+        track.appendChild(slide);
+        slideElements.push(slide);
+      });
+
+      mobileGrouped = true;
+    }
+
+    function ungroupForDesktop() {
+      if (!track || !mobileGrouped) return;
+
+      cards.forEach((card) => track.appendChild(card));
+      slideElements.forEach((slide) => slide.remove());
+      slideElements = [];
+      mobileGrouped = false;
+    }
 
     function syncDots() {
       if (!dotsRoot) return;
+
       if (!isMobileMode()) {
         dotsRoot.innerHTML = "";
         return;
       }
 
-      if (dotsRoot.children.length !== cards.length) {
+      const total = getMobilePageCount();
+
+      if (dotsRoot.children.length !== total) {
         dotsRoot.replaceChildren();
-        cards.forEach((_, i) => {
-          const b = document.createElement("button");
-          b.type = "button";
-          b.className = "carousel__dot";
-          b.setAttribute("role", "tab");
-          b.setAttribute("aria-label", `Слайд ${i + 1}`);
-          b.addEventListener("click", () => {
+        for (let i = 0; i < total; i += 1) {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "carousel__dot";
+          button.setAttribute("role", "tab");
+          button.setAttribute("aria-label", `Слайд ${i + 1}`);
+          button.addEventListener("click", () => {
             page = i;
             update();
           });
-          dotsRoot.appendChild(b);
-        });
+          dotsRoot.appendChild(button);
+        }
       }
 
       [...dotsRoot.children].forEach((btn, i) => {
@@ -50,22 +102,27 @@
       });
     }
 
-    function isMobileMode() {
-      return !mqDesktop.matches;
-    }
-
     function resetMobileStyles() {
       if (!track) return;
+      if (viewport) viewport.style.height = "";
       track.style.transform = "";
       track.style.width = "";
+      track.style.height = "";
+      track.style.display = "";
       track.style.gridTemplateColumns = "";
       track.style.gridAutoColumns = "";
+      slideElements.forEach((slide) => {
+        slide.style.flex = "";
+        slide.style.width = "";
+        slide.style.height = "";
+      });
     }
 
     function update() {
       if (!viewport || !track || !counter) return;
 
       if (!isMobileMode()) {
+        ungroupForDesktop();
         resetMobileStyles();
         if (prev) prev.disabled = true;
         if (next) next.disabled = true;
@@ -74,11 +131,21 @@
         return;
       }
 
-      const slideWidth = viewport.clientWidth;
-      const total = cards.length;
+      groupForMobile();
 
-      track.style.gridAutoColumns = `${slideWidth}px`;
+      const slideWidth = viewport.clientWidth;
+      const total = getMobilePageCount();
+
+      track.style.display = "flex";
       track.style.width = `${total * slideWidth}px`;
+
+      const slideHeight = viewport.clientHeight;
+
+      slideElements.forEach((slide) => {
+        slide.style.flex = `0 0 ${slideWidth}px`;
+        slide.style.width = `${slideWidth}px`;
+        slide.style.height = `${slideHeight}px`;
+      });
 
       page = Math.max(0, Math.min(page, total - 1));
       track.style.transform = `translateX(${-page * slideWidth}px)`;
