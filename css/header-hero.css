@@ -204,7 +204,7 @@
   max-width: 52ch;
   font-family: "Golos Text", system-ui, sans-serif;
   font-weight: 400;
-  color: #313131;
+  color: var(--color-text);
   font-size: 1.05rem;
   text-align: center;
 }
@@ -216,15 +216,15 @@
 }
 
 .hero__actions .btn--primary:hover {
-  background: #fbce51;
-  color: #1f1f1f;
+  background: var(--color-gold);
+  color: var(--color-text-dark);
   box-shadow: var(--shadow-soft);
 }
 
 .hero__actions .btn--ghost:hover {
-  background: #1f1f1f;
-  color: #fff;
-  border-color: #1f1f1f;
+  background: var(--color-text-dark);
+  color: var(--color-white);
+  border-color: var(--color-text-dark);
 }
 
 .hero__collage {
@@ -246,7 +246,12 @@
   width: min(220px, 45vw);
   height: min(220px, 45vw);
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #fff4c2, #fbce51 55%, #e2a826 100%);
+  background: radial-gradient(
+    circle at 35% 35%,
+    var(--color-gold-light),
+    var(--color-gold) 55%,
+    var(--color-gold-dark) 100%
+  );
   opacity: 0.95;
 }
 
@@ -260,9 +265,9 @@
   position: absolute;
   width: 72px;
   height: 120px;
-  background: linear-gradient(180deg, #fff 0%, #e8e0d5 100%);
+  background: linear-gradient(180deg, var(--color-white) 0%, var(--color-card-light) 100%);
   border-radius: 8px 8px 4px 4px;
-  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-piece);
 }
 
 .chess-piece::before {
@@ -308,35 +313,35 @@
   height: 42%;
   background: linear-gradient(
       to top,
-      rgba(49, 49, 49, 0.25),
+      var(--color-overlay-soft),
       transparent
     ),
     linear-gradient(
       90deg,
-      #4a4a4a 0 4%,
+      var(--color-skyline-1) 0 4%,
       transparent 4% 8%,
-      #3d3d3d 8% 11%,
+      var(--color-skyline-2) 8% 11%,
       transparent 11% 15%,
-      #525252 15% 20%,
+      var(--color-skyline-3) 15% 20%,
       transparent 20% 24%,
-      #4f4f4f 24% 30%,
+      var(--color-skyline-4) 24% 30%,
       transparent 30% 35%,
-      #3a3a3a 35% 40%,
+      var(--color-skyline-5) 35% 40%,
       transparent 40% 44%,
-      #555 44% 52%,
+      var(--color-skyline-6) 44% 52%,
       transparent 52% 100%
     );
-  mask-image: linear-gradient(to top, #000 55%, transparent);
+  mask-image: linear-gradient(to top, var(--color-black) 55%, transparent);
 }
 
 .chess-strip {
   height: 28px;
   background: repeating-linear-gradient(
     90deg,
-    #313131 0,
-    #313131 28px,
-    #f5f0e6 28px,
-    #f5f0e6 56px
+    var(--color-text) 0,
+    var(--color-text) 28px,
+    var(--color-bg-section) 28px,
+    var(--color-bg-section) 56px
   );
 }
 

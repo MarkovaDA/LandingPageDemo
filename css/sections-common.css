@@ -1,6 +1,6 @@
 main,
 .section {
-  background-color: #fff;
+  background-color: var(--color-white);
 }
 
 .section {
@@ -8,7 +8,7 @@ main,
 }
 
 .section--lecture {
-  background: #fff;
+  background: var(--color-white);
   padding-top: 36px;
 }
 

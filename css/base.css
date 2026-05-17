@@ -1,17 +1,49 @@
 :root {
+  /* Основная палитра */
   --color-bg: #e9e1d4;
   --color-bg-alt: #f2ead0;
+  --color-bg-page: #e9ded4;
+  --color-bg-section: #f5f0e6;
+  --color-white: #fff;
+  --color-black: #000;
   --color-text: #313131;
+  --color-text-dark: #1f1f1f;
   --color-red: #f54932;
   --color-blue: #3056d3;
+  --color-blue-link: #3057a2;
   --color-gold: #fbce51;
+  --color-gold-light: #fff4c2;
+  --color-gold-dark: #e2a826;
   --color-card: #e5dbc8;
+  --color-card-light: #e8e0d5;
   --color-muted: #6b6560;
+
+  /* Для rgba() */
+  --color-text-rgb: 49, 49, 49;
+
+  /* Границы и полупрозрачные слои */
+  --color-border-subtle: rgba(var(--color-text-rgb), 0.12);
+  --color-overlay-muted: rgba(var(--color-text-rgb), 0.18);
+  --color-overlay-soft: rgba(var(--color-text-rgb), 0.25);
+  --color-overlay-light: rgba(var(--color-text-rgb), 0.06);
+
+  /* Тени */
+  --shadow-soft: 0 12px 40px rgba(var(--color-text-rgb), 0.12);
+  --shadow-card: 0 8px 24px rgba(var(--color-text-rgb), 0.06);
+  --shadow-piece: 0 16px 28px rgba(0, 0, 0, 0.15);
+
+  /* Декоративные (силуэт в hero) */
+  --color-skyline-1: #4a4a4a;
+  --color-skyline-2: #3d3d3d;
+  --color-skyline-3: #525252;
+  --color-skyline-4: #4f4f4f;
+  --color-skyline-5: #3a3a3a;
+  --color-skyline-6: #555;
+
   --font-serif: "Playfair Display", "Times New Roman", serif;
   --font-sans: "PT Sans", system-ui, sans-serif;
   --container: min(1160px, calc(100% - 40px));
   --radius-pill: 60px;
-  --shadow-soft: 0 12px 40px rgba(49, 49, 49, 0.12);
 }
 
 *,
@@ -36,7 +68,7 @@ body {
   font-size: 1rem;
   line-height: 1.55;
   color: var(--color-text);
-  background-color: #e9ded4;
+  background-color: var(--color-bg-page);
 }
 
 img {

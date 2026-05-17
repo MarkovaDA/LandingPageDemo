@@ -18,14 +18,14 @@
 
 .btn--primary {
   background: var(--color-text);
-  color: #fff;
+  color: var(--color-white);
   box-shadow: var(--shadow-soft);
 }
 
 .btn--ghost {
   background: transparent;
   color: var(--color-text);
-  border-color: #000;
+  border-color: var(--color-black);
 }
 
 .btn--outline {

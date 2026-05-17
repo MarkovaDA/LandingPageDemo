@@ -1,5 +1,5 @@
 .section--stages {
-  background: #fff;
+  background: var(--color-white);
 }
 
 .section--stages .container {
@@ -91,7 +91,7 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 120%;
-  color: #3057a2;
+  color: var(--color-blue-link);
   text-transform: none;
   letter-spacing: normal;
 }
@@ -201,7 +201,7 @@
   padding: 16px 24px;
   border-radius: 12px;
   min-height: 112px;
-  box-shadow: 0 8px 24px rgba(49, 49, 49, 0.06);
+  box-shadow: var(--shadow-card);
 }
 
 .stage-card__num {
@@ -210,7 +210,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--color-white);
   color: var(--color-text);
   font-weight: 800;
   display: inline-flex;

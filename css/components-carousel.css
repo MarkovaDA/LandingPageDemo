@@ -15,7 +15,7 @@
   border-radius: 50%;
   border: none;
   background: var(--color-text);
-  color: #fff;
+  color: var(--color-white);
   font-size: 1.4rem;
   line-height: 1;
   cursor: pointer;
@@ -64,7 +64,7 @@
   border: none;
   padding: 0;
   flex-shrink: 0;
-  background: rgba(49, 49, 49, 0.18);
+  background: var(--color-overlay-muted);
   cursor: pointer;
   transition: background 0.15s ease, transform 0.15s ease;
 }

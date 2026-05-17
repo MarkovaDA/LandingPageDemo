@@ -10,7 +10,7 @@
   }
 
   main .section {
-    background-color: #f5f0e6;
+    background-color: var(--color-bg-section);
   }
 
   .section {
