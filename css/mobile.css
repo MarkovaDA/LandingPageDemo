@@ -14,8 +14,12 @@
     background-color: var(--color-white);
   }
 
+  .footer {
+    background-color: #e9ded4;
+  }
+
   .footer__note {
-    background-color: var(--color-white);
+    background-color: #e9ded4;
   }
 
   .section {
@@ -58,13 +62,34 @@
     justify-content: center;
   }
 
+  .section--players .container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "players-title"
+      "players-carousel"
+      "players-controls";
+    row-gap: 20px;
+  }
+
   .section--players .section__head {
-    align-items: center;
+    display: contents;
   }
 
   .section--players .section__head .section__title {
+    grid-area: players-title;
     text-align: center;
     width: 100%;
+    margin-bottom: 0;
+  }
+
+  .section--players .section__head .carousel__controls--inline {
+    grid-area: players-controls;
+    margin-top: 0;
+  }
+
+  .section--players .players.carousel {
+    grid-area: players-carousel;
   }
 
   /* Карусель «Этапы»: точки над стрелками (как на макете) */
@@ -115,6 +140,7 @@
     height: auto;
     min-height: 800px;
     background-color: var(--color-bg);
+    overflow: hidden;
   }
 
   .hero {
@@ -230,9 +256,13 @@
   }
 
   .hero__chess-figures {
+    --hero-chess-queen-bottom: calc(40px + 8.75rem);
+    --hero-chess-king-bottom: calc(40px + 5.75rem);
     display: block;
     z-index: 0;
-    background-position: right 82px top 0, right 40% top 100px;
+    background-position:
+      right 82px bottom var(--hero-chess-queen-bottom),
+      right 40% bottom var(--hero-chess-king-bottom);
     background-size: min(100px, 11vw) auto, min(100px, 11vw) auto;
   }
 
@@ -261,10 +291,14 @@
     right: auto;
     width: 80vw;
     height: 80vw;
+    max-height: calc(
+      100% - var(--hero-ellipse-top, 45%) - var(--hero-ticker-height, 2.75rem)
+    );
     translate: -50% 0;
     transform: none;
     animation: hero-ellipse-rise-in-mobile 250ms ease-out both;
     background-position: -24px 16px, center;
+    overflow: hidden;
   }
 
   @keyframes hero-ellipse-rise-in-mobile {

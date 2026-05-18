@@ -4,6 +4,7 @@
 }
 
 .hero__chess-figures {
+  --hero-chess-king-bottom: calc(40px + 9rem);
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -12,7 +13,9 @@
     url("../assets/queen.png"),
     url("../assets/king.png");
   background-repeat: no-repeat;
-  background-position: right 165px top 0, right 40% top 200px;
+  background-position:
+    right 165px top 0,
+    right 40% bottom var(--hero-chess-king-bottom);
   background-size: min(200px, 22vw) auto, min(200px, 22vw) auto;
 }
 
@@ -73,7 +76,7 @@
 
 .hero__pawn {
   position: absolute;
-  right: 70px;
+  right: 130px;
   bottom: 50px;
   width: 120px;
   height: 120px;
